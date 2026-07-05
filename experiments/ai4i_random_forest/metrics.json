@@ -1,0 +1,18 @@
+{
+  "experiment": "ai4i_random_forest_baseline",
+  "dataset": "AI4I 2020",
+  "target": "Machine failure",
+  "model": "RandomForestClassifier",
+  "generated_at_utc": "2026-07-03T12:13:28.815399+00:00",
+  "metrics": {
+    "train_rows": 8000,
+    "test_rows": 2000,
+    "positive_rate_train": 0.033875,
+    "positive_rate_test": 0.034,
+    "accuracy": 0.98,
+    "precision": 0.9117647058823529,
+    "recall": 0.45588235294117646,
+    "f1": 0.6078431372549019,
+    "roc_auc": 0.9633570819632201
+  }
+}

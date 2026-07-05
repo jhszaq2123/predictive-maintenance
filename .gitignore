@@ -4,6 +4,9 @@ __pycache__/
 *.pyd
 *.pyo
 *.so
+.coverage
+coverage.xml
+htmlcov/
 .Python
 .pytest_cache/
 .mypy_cache/
@@ -17,10 +20,18 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
+# Internal collaboration docs
+AGENTS.md
+PROJECT_STATE.md
+DECISIONS.md
+.agents/
+.codex/
+
 # Data artifacts
 data/raw/*
 data/interim/*
 data/processed/*
+data/downloads/
 !data/raw/.gitkeep
 !data/interim/.gitkeep
 !data/processed/.gitkeep
@@ -36,8 +47,14 @@ reports/*
 .idea/
 Thumbs.db
 .DS_Store
+desktop.ini
 
 # Build artifacts
 build/
 dist/
 *.egg-info/
+
+# Environment files and logs
+.env
+.env.*
+*.log

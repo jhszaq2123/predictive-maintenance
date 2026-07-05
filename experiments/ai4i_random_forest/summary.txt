@@ -1,0 +1,18 @@
+AI4I 2020 Random Forest baseline
+Train rows: 8000
+Test rows: 2000
+Accuracy: 0.9800
+Precision: 0.9118
+Recall: 0.4559
+F1: 0.6078
+ROC-AUC: 0.9634
+
+Top feature importances:
+- numeric__Rotational speed [rpm]: 0.3022
+- numeric__Torque [Nm]: 0.3002
+- numeric__Tool wear [min]: 0.1995
+- numeric__Air temperature [K]: 0.1040
+- numeric__Process temperature [K]: 0.0746
+- categorical__Type_L: 0.0095
+- categorical__Type_M: 0.0063
+- categorical__Type_H: 0.0037

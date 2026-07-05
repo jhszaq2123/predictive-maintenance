@@ -1,1 +1,1 @@
-"""Top-level application package for the MSc predictive maintenance project."""
+"""Top-level application package for the predictive maintenance repository."""

@@ -1,179 +1,229 @@
 # Predictive Maintenance AI
 
-Projekt do pracy magisterskiej pt. "Analiza efektywnosci wybranych modeli AI dla potrzeb budowy systemu do predykcji awarii maszyn przemyslowych na podstawie danych czujnikowych."
+An end-to-end machine learning pipeline for predictive maintenance using industrial sensor data.
 
-## Status projektu
+The repository currently provides a validated tabular pipeline built on the AI4I 2020 dataset:
 
-Publiczny stan repozytorium odpowiada fundamentowi danych z `AI4I 2020` oraz pierwszemu zaakceptowanemu baseline'owi:
+```text
+AI4I 2020 Dataset
+        │
+        ▼
+Preprocessing
+        │
+        ▼
+Random Forest
+        │
+        ▼
+Evaluation
+        │
+        ▼
+Model Serialization
+        │
+        ▼
+Prediction API
+```
 
-`CSV -> preprocessing -> Random Forest -> ewaluacja -> zapis modelu -> predykcja`
+The codebase also includes early scaffolding for additional datasets and models, but those parts are not yet presented here as completed baselines.
 
-Repozytorium zawiera rowniez kod przygotowany do kolejnych eksperymentow, ale po zakonczeniu Sprintu 2 jedynym formalnie domknietym baseline'em modelowym pozostaje `Random Forest`.
+## Features
 
-## Zakres po Sprincie 2
+### ✅ Implemented
 
-Aktualnie gotowe i zweryfikowane sa:
+- AI4I 2020 preprocessing pipeline with explicit target preparation
+- Leakage-aware feature selection for machine failure classification
+- One-hot encoding for categorical features
+- Standard scaling for numeric features
+- Stratified train/test split
+- Random Forest baseline training
+- Random Forest evaluation with accuracy, precision, recall, F1, ROC-AUC, and confusion matrix
+- Serialized model bundle for local inference
+- Prediction utility for single machine records
+- FastAPI prototype with `/health` and `/predict`
+- Basic automated tests for dataset configuration and Random Forest pipeline behavior
 
-- preprocessing danych `AI4I 2020`,
-- zapis przetworzonych zbiorow treningowego i testowego,
-- trening modelu `RandomForestClassifier`,
-- ewaluacja metrykami klasyfikacyjnymi i confusion matrix,
-- predykcja z zapisanego modelu.
+### 🚧 In Progress
 
-Repozytorium zawiera rowniez kod przygotowany do kolejnych etapow, w tym `XGBoost` oraz podstawowy szkic API, ale elementy te nie sa jeszcze czescia formalnie zakonczonego porownania modeli ani kolejnych zaakceptowanych sprintow.
+- XGBoost baseline scripts and artifacts are present in the repository, but the baseline is still under formal validation
+- Public release hardening and repository cleanup for broader reproducibility
+- Separation of validated baselines from future experiment scaffolding
 
-## Struktura repozytorium
+### 📅 Planned
+
+- Formal XGBoost baseline completion
+- Side-by-side Random Forest vs. XGBoost comparison
+- NASA CMAPSS integration for RUL prediction
+- Sequence construction for time-series modeling
+- LSTM experiments
+- GRU experiments
+- SECOM experiments for missing-data-heavy industrial settings
+- FastAPI improvements and a more complete demonstration layer
+
+## Project Structure
 
 ```text
 predictive-maintenance-ai/
-|-- api/
-|   `-- main.py
-|-- data/
-|   |-- interim/
-|   |-- processed/
-|   `-- raw/
-|-- docs/
-|   |-- data-sources.md
-|   `-- project-plan.md
-|-- experiments/
-|   |-- ai4i_random_forest/
-|   `-- run_ai4i_random_forest.py
-|-- models/
-|-- notebooks/
-|   `-- 01_ai4i_eda.ipynb
-|-- reports/
-|-- scripts/
-|   `-- download_datasets.ps1
-|-- src/
-|   |-- data_preprocessing.py
-|   |-- evaluate.py
-|   |-- predict.py
-|   |-- train_random_forest.py
-|   |-- train_xgboost.py
-|   `-- predictive_maintenance/
-|-- tests/
-|   |-- test_ai4i_data.py
-|   |-- test_config.py
-|   |-- test_datasets.py
-|   `-- test_random_forest_pipeline.py
-|-- pyproject.toml
-|-- requirements.txt
-`-- README.md
+├── api/                # FastAPI application
+├── data/               # Local raw, interim, and processed datasets
+├── docs/               # Supporting project notes and dataset references
+├── experiments/        # Experiment scripts and lightweight experiment outputs
+├── models/             # Serialized models generated locally
+├── notebooks/          # Exploratory notebooks
+├── reports/            # Figures and metrics generated locally
+├── scripts/            # Utility scripts, including dataset download helpers
+├── src/                # Training, preprocessing, evaluation, and prediction code
+├── tests/              # Automated tests
+├── pyproject.toml      # Pytest configuration and project metadata
+├── requirements.txt    # Python dependencies
+└── README.md
 ```
 
-## Dane
+## Tech Stack
 
-Do uruchomienia pipeline'u po Sprincie 2 wymagany jest zbior `AI4I 2020`.
+- Python
+- pandas
+- NumPy
+- scikit-learn
+- XGBoost
+- Matplotlib
+- Seaborn
+- FastAPI
+- Uvicorn
+- pytest
+- Jupyter Notebook
 
-Kod preprocessingu oczekuje pliku:
+## Datasets
+
+### AI4I 2020
+
+Implemented in the current baseline workflow.
+
+This is the only dataset fully wired into preprocessing, model training, evaluation, and prediction. It is treated as a binary classification task with `Machine failure` as the target.
+
+Expected local file:
 
 ```text
 data/raw/ai4i2020.csv
 ```
 
-Mozna przygotowac dane recznie albo skorzystac ze skryptu:
+### NASA CMAPSS
+
+Planned.
+
+The repository already contains dataset metadata and analysis-related scaffolding, but CMAPSS is not yet part of the validated experimental pipeline. It is intended for future Remaining Useful Life (RUL) experiments with sequence models.
+
+### SECOM
+
+Planned.
+
+The repository includes references and exploratory support for SECOM, but it is not yet integrated into a validated modeling workflow. It is intended for later experiments involving high-dimensional industrial data with substantial missingness.
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/jhszaq2123/predictive-maintenance.git
+cd predictive-maintenance
+```
+
+### 2. Create and activate a virtual environment
+
+Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+macOS / Linux:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Download datasets
+
+Use the provided helper script to download the datasets referenced by the project:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\download_datasets.ps1
 ```
 
-Skrypt pobiera zbiory do lokalnego katalogu `data/` i dla `AI4I 2020` zapisuje plik rowniez do sciezki wymaganej przez pipeline.
+For the validated AI4I workflow, make sure this file exists after download:
 
-Surowe dane, dane przetworzone, modele i wygenerowane raporty nie sa przeznaczone do publikacji w repozytorium i powinny byc odtwarzane lokalnie.
-
-## Architektura pipeline'u
-
-`src/data_preprocessing.py`
-
-- wczytuje `AI4I 2020`,
-- usuwa kolumny identyfikacyjne i kolumny powodujace wyciek informacji,
-- przygotowuje target `Machine failure`,
-- koduje zmienna `Type`,
-- skaluje cechy numeryczne,
-- dzieli dane na `train/test`,
-- zapisuje dane przetworzone i artefakty preprocessingu.
-
-`src/train_random_forest.py`
-
-- trenuje `RandomForestClassifier`,
-- zapisuje model do lokalnego katalogu `models/`.
-
-`src/evaluate.py`
-
-- oblicza `Accuracy`, `Precision`, `Recall`, `F1` i `ROC-AUC`,
-- zapisuje metryki modelu,
-- generuje confusion matrix,
-- zapisuje porownanie modeli tylko przy wspolnej ewaluacji wielu modeli.
-
-`src/predict.py`
-
-- wczytuje zapisany model `Random Forest`,
-- przyjmuje pojedynczy rekord maszyny,
-- zwraca prawdopodobienstwo awarii i klase predykcji.
-
-`api/main.py`
-
-- zawiera szkic endpointow `GET /health` oraz `POST /predict`,
-- korzysta z modelu `Random Forest`,
-- pozostaje elementem przygotowanym do dalszej formalnej walidacji w kolejnych etapach projektu.
-
-## Instalacja
-
-```powershell
-pip install -r requirements.txt
+```text
+data/raw/ai4i2020.csv
 ```
 
-## Uruchomienie po Sprincie 2
+### 5. Prepare the local environment
 
-1. Przygotuj dane `AI4I 2020` w `data/raw/ai4i2020.csv`.
+This repository does not ship raw datasets, processed datasets, trained models, or generated reports. Those artifacts are expected to be created locally.
 
-2. Wykonaj preprocessing:
+## Usage
+
+### Preprocess AI4I 2020
 
 ```powershell
 python .\src\data_preprocessing.py
 ```
 
-3. Wytrenuj baseline `Random Forest`:
+This step:
+
+- loads the raw CSV
+- removes identifier columns and known leakage columns
+- encodes `Type`
+- scales numeric features
+- creates a stratified train/test split
+- writes processed artifacts to `data/processed/`
+
+### Train the Random Forest baseline
 
 ```powershell
 python .\src\train_random_forest.py
 ```
 
-4. Uruchom ewaluacje baseline'u:
+This writes the trained model bundle to:
+
+```text
+models/random_forest.pkl
+```
+
+### Evaluate the Random Forest baseline
 
 ```powershell
 python .\src\evaluate.py --model random_forest
 ```
 
-5. Uruchom przykladowa predykcje:
+This generates:
+
+- `reports/metrics/random_forest_metrics.json`
+- `reports/figures/random_forest_confusion_matrix.png`
+
+### Run a local prediction
 
 ```powershell
 python .\src\predict.py
 ```
 
-6. Opcjonalnie uruchom lokalny szkic API:
+### Start the FastAPI server
 
 ```powershell
 uvicorn api.main:app --reload
 ```
 
-Oficjalny wykres confusion matrix dla baseline'u `Random Forest` jest zapisywany jako:
+Available endpoints:
 
-```text
-reports/figures/random_forest_confusion_matrix.png
-```
+- `GET /health`
+- `POST /predict`
 
-## Uruchomienie testow
-
-```powershell
-pytest
-```
-
-Testy wymagajace lokalnych danych lub przetworzonych artefaktow sa automatycznie pomijane, jesli te pliki nie zostaly jeszcze przygotowane.
-
-## API
-
-Przykladowy payload dla endpointu `POST /predict`:
+Example request payload:
 
 ```json
 {
@@ -186,8 +236,38 @@ Przykladowy payload dla endpointu `POST /predict`:
 }
 ```
 
-## Proponowane pierwsze wydanie
+## Current Results
 
-Sugerowana nazwa pierwszego publicznego wydania:
+Current validated baseline: `RandomForestClassifier` on AI4I 2020.
 
-`v0.1.0 - Random Forest Baseline`
+| Metric | Value |
+| --- | ---: |
+| Accuracy | 0.9805 |
+| Precision | 0.7959 |
+| Recall | 0.5735 |
+| F1 Score | 0.6667 |
+| ROC-AUC | 0.9701 |
+
+The current Random Forest baseline shows strong overall classification performance, especially in accuracy and ROC-AUC. At the same time, recall remains noticeably lower than the other headline metrics, which suggests that failure cases are still harder to capture reliably. This makes the baseline useful as a reference point while also motivating a careful comparison with XGBoost in the next stage.
+
+Confusion matrix:
+
+```text
+[[1922, 10],
+ [  29, 39]]
+```
+
+## Roadmap
+
+- [ ] XGBoost baseline
+- [ ] Random Forest vs. XGBoost comparison
+- [ ] NASA CMAPSS integration
+- [ ] Sequence generation
+- [ ] LSTM experiments
+- [ ] GRU experiments
+- [ ] SECOM integration
+- [ ] FastAPI improvements
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

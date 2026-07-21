@@ -122,7 +122,7 @@ The repository includes references and exploratory support for SECOM, but it is 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/jhszaq2123/predictive-maintenance.git
+git clone https://github.com/<your-org-or-username>/predictive-maintenance.git
 cd predictive-maintenance
 ```
 

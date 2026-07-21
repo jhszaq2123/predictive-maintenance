@@ -1,0 +1,102 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgPanel" x1="0" y1="0" x2="1200" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16222D"/>
+      <stop offset="1" stop-color="#101922"/>
+    </linearGradient>
+    <linearGradient id="driveBed" x1="110" y1="280" x2="1070" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1B2A35"/>
+      <stop offset="1" stop-color="#111A22"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1200" height="520" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#050A0F" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="24" y="24" width="1152" height="472" rx="26" fill="url(#bgPanel)" stroke="#365163" stroke-width="2"/>
+  </g>
+
+  <rect x="72" y="68" width="1056" height="42" rx="12" fill="#13202A" stroke="#2E4555"/>
+  <text x="104" y="95" fill="#9CB2BF" font-family="Segoe UI, Arial, sans-serif" font-size="18" letter-spacing="1.5">INDUSTRIAL DRIVE SYSTEM</text>
+  <text x="865" y="95" fill="#5C7C8E" font-family="Segoe UI, Arial, sans-serif" font-size="14">OFFLINE PRESENTATION LAYOUT</text>
+
+  <path d="M120 376H1082" stroke="#315064" stroke-width="4" stroke-linecap="round"/>
+  <path d="M152 404H1048" stroke="#223847" stroke-width="18" stroke-linecap="round"/>
+  <path d="M120 360L170 296H1028L1082 360" fill="url(#driveBed)" stroke="#2D4454" stroke-width="2"/>
+
+  <g id="electric_motor">
+    <polygon points="150,290 320,290 356,332 188,332" fill="{{ELECTRIC_MOTOR_FILL}}" stroke="{{ELECTRIC_MOTOR_STROKE}}" stroke-width="{{ELECTRIC_MOTOR_STROKE_WIDTH}}"/>
+    <polygon points="320,290 320,196 356,238 356,332" fill="{{ELECTRIC_MOTOR_SIDE_FILL}}" stroke="{{ELECTRIC_MOTOR_STROKE}}" stroke-width="{{ELECTRIC_MOTOR_STROKE_WIDTH}}"/>
+    <polygon points="150,290 150,196 320,196 320,290" fill="{{ELECTRIC_MOTOR_TOP_FILL}}" stroke="{{ELECTRIC_MOTOR_STROKE}}" stroke-width="{{ELECTRIC_MOTOR_STROKE_WIDTH}}"/>
+    <line x1="182" y1="204" x2="182" y2="286" stroke="#6F8897" stroke-width="2" opacity="0.65"/>
+    <line x1="202" y1="204" x2="202" y2="286" stroke="#6F8897" stroke-width="2" opacity="0.65"/>
+    <line x1="222" y1="204" x2="222" y2="286" stroke="#6F8897" stroke-width="2" opacity="0.65"/>
+    <line x1="242" y1="204" x2="242" y2="286" stroke="#6F8897" stroke-width="2" opacity="0.65"/>
+    <line x1="262" y1="204" x2="262" y2="286" stroke="#6F8897" stroke-width="2" opacity="0.65"/>
+    <line x1="282" y1="204" x2="282" y2="286" stroke="#6F8897" stroke-width="2" opacity="0.65"/>
+    <rect x="286" y="228" width="28" height="24" rx="4" fill="#12202A" stroke="#658295" stroke-width="2"/>
+    <circle cx="170" cy="242" r="18" fill="#101921" stroke="#6F8897" stroke-width="4"/>
+    <circle cx="170" cy="242" r="6" fill="#7E98A8"/>
+    <rect x="182" y="332" width="24" height="34" rx="4" fill="#203441"/>
+    <rect x="298" y="332" width="24" height="34" rx="4" fill="#203441"/>
+    <text x="176" y="184" fill="#C9D6DD" font-family="Segoe UI, Arial, sans-serif" font-size="18">Electric Motor</text>
+  </g>
+
+  <g id="coupling">
+    <ellipse cx="404" cy="312" rx="34" ry="30" fill="{{COUPLING_FILL}}" stroke="{{COUPLING_STROKE}}" stroke-width="{{COUPLING_STROKE_WIDTH}}"/>
+    <ellipse cx="404" cy="248" rx="34" ry="30" fill="{{COUPLING_TOP_FILL}}" stroke="{{COUPLING_STROKE}}" stroke-width="{{COUPLING_STROKE_WIDTH}}"/>
+    <rect x="370" y="248" width="68" height="64" fill="{{COUPLING_FILL}}" stroke="{{COUPLING_STROKE}}" stroke-width="{{COUPLING_STROKE_WIDTH}}"/>
+    <line x1="404" y1="248" x2="404" y2="312" stroke="#A9BBC7" stroke-width="2" stroke-dasharray="5 6"/>
+    <text x="364" y="220" fill="#C9D6DD" font-family="Segoe UI, Arial, sans-serif" font-size="18">Coupling</text>
+  </g>
+
+  <g id="gearbox">
+    <polygon points="478,306 650,306 694,352 524,352" fill="{{GEARBOX_FILL}}" stroke="{{GEARBOX_STROKE}}" stroke-width="{{GEARBOX_STROKE_WIDTH}}"/>
+    <polygon points="650,306 650,206 694,252 694,352" fill="{{GEARBOX_SIDE_FILL}}" stroke="{{GEARBOX_STROKE}}" stroke-width="{{GEARBOX_STROKE_WIDTH}}"/>
+    <polygon points="478,306 478,206 650,206 650,306" fill="{{GEARBOX_TOP_FILL}}" stroke="{{GEARBOX_STROKE}}" stroke-width="{{GEARBOX_STROKE_WIDTH}}"/>
+    <circle cx="552" cy="278" r="26" fill="#0E161D" stroke="#7191A4" stroke-width="4"/>
+    <circle cx="602" cy="252" r="18" fill="#0E161D" stroke="#7191A4" stroke-width="4"/>
+    <rect x="512" y="322" width="34" height="24" rx="5" fill="#1A2A34" stroke="#658295" stroke-width="2"/>
+    <rect x="620" y="322" width="34" height="24" rx="5" fill="#1A2A34" stroke="#658295" stroke-width="2"/>
+    <circle cx="530" cy="334" r="3.5" fill="#8BA2B1"/>
+    <circle cx="637" cy="334" r="3.5" fill="#8BA2B1"/>
+    <text x="538" y="190" fill="#C9D6DD" font-family="Segoe UI, Arial, sans-serif" font-size="18">Gearbox</text>
+  </g>
+
+  <g id="bearings">
+    <ellipse cx="758" cy="322" rx="26" ry="18" fill="{{BEARINGS_FILL}}" stroke="{{BEARINGS_STROKE}}" stroke-width="{{BEARINGS_STROKE_WIDTH}}"/>
+    <ellipse cx="758" cy="266" rx="26" ry="18" fill="{{BEARINGS_TOP_FILL}}" stroke="{{BEARINGS_STROKE}}" stroke-width="{{BEARINGS_STROKE_WIDTH}}"/>
+    <rect x="732" y="266" width="52" height="56" fill="{{BEARINGS_FILL}}" stroke="{{BEARINGS_STROKE}}" stroke-width="{{BEARINGS_STROKE_WIDTH}}"/>
+    <ellipse cx="826" cy="322" rx="26" ry="18" fill="{{BEARINGS_FILL}}" stroke="{{BEARINGS_STROKE}}" stroke-width="{{BEARINGS_STROKE_WIDTH}}"/>
+    <ellipse cx="826" cy="266" rx="26" ry="18" fill="{{BEARINGS_TOP_FILL}}" stroke="{{BEARINGS_STROKE}}" stroke-width="{{BEARINGS_STROKE_WIDTH}}"/>
+    <rect x="800" y="266" width="52" height="56" fill="{{BEARINGS_FILL}}" stroke="{{BEARINGS_STROKE}}" stroke-width="{{BEARINGS_STROKE_WIDTH}}"/>
+    <text x="734" y="236" fill="#C9D6DD" font-family="Segoe UI, Arial, sans-serif" font-size="18">Bearings</text>
+  </g>
+
+  <g id="shaft">
+    <rect x="336" y="285" width="554" height="12" rx="6" fill="{{SHAFT_FILL}}" stroke="{{SHAFT_STROKE}}" stroke-width="{{SHAFT_STROKE_WIDTH}}"/>
+    <rect x="336" y="241" width="554" height="12" rx="6" fill="{{SHAFT_TOP_FILL}}" stroke="{{SHAFT_STROKE}}" stroke-width="{{SHAFT_STROKE_WIDTH}}"/>
+    <line x1="336" y1="241" x2="336" y2="297" stroke="{{SHAFT_STROKE}}" stroke-width="{{SHAFT_STROKE_WIDTH}}"/>
+    <line x1="890" y1="241" x2="890" y2="297" stroke="{{SHAFT_STROKE}}" stroke-width="{{SHAFT_STROKE_WIDTH}}"/>
+    <text x="698" y="214" fill="#C9D6DD" font-family="Segoe UI, Arial, sans-serif" font-size="18">Shaft</text>
+  </g>
+
+  <g id="pump">
+    <path d="M930 318C930 290 956 266 998 266H1042C1084 266 1110 290 1110 318C1110 346 1084 370 1042 370H998C956 370 930 346 930 318Z" fill="{{PUMP_FILL}}" stroke="{{PUMP_STROKE}}" stroke-width="{{PUMP_STROKE_WIDTH}}"/>
+    <path d="M948 266L984 224H1060L1090 266" fill="{{PUMP_TOP_FILL}}" stroke="{{PUMP_STROKE}}" stroke-width="{{PUMP_STROKE_WIDTH}}"/>
+    <circle cx="1020" cy="318" r="28" fill="#0C141A" stroke="#7898AA" stroke-width="4"/>
+    <circle cx="1020" cy="318" r="10" fill="#7898AA"/>
+    <rect x="952" y="338" width="28" height="20" rx="4" fill="#13212A" stroke="#658295" stroke-width="2"/>
+    <rect x="1060" y="338" width="28" height="20" rx="4" fill="#13212A" stroke="#658295" stroke-width="2"/>
+    <path d="M1110 316H1146L1164 292V342L1146 328H1110Z" fill="{{PUMP_NOZZLE_FILL}}" stroke="{{PUMP_STROKE}}" stroke-width="{{PUMP_STROKE_WIDTH}}"/>
+    <text x="975" y="208" fill="#C9D6DD" font-family="Segoe UI, Arial, sans-serif" font-size="18">Centrifugal Pump</text>
+  </g>
+
+  <path d="M164 376H1048" stroke="#1A2A35" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="190" cy="376" r="5" fill="#416479"/>
+  <circle cx="1046" cy="376" r="5" fill="#416479"/>
+  <circle cx="242" cy="386" r="4" fill="#557C91"/>
+  <circle cx="572" cy="386" r="4" fill="#557C91"/>
+  <circle cx="896" cy="386" r="4" fill="#557C91"/>
+</svg>

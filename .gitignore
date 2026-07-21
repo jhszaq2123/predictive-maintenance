@@ -58,3 +58,7 @@ dist/
 .env
 .env.*
 *.log
+*.tmp
+*.temp
+tmp/
+.tmp/

@@ -1,0 +1,23 @@
+AI4I 2020 XGBoost baseline
+Train rows: 8000
+Test rows: 2000
+Positive rate (train): 0.0339
+Positive rate (test): 0.0340
+Accuracy: 0.9795
+Precision: 0.6709
+Recall: 0.7794
+F1: 0.7211
+ROC-AUC: 0.9728
+
+Confusion matrix:
+[[1906, 26], [15, 53]]
+
+Top feature importances:
+- numeric__Rotational speed [rpm]: 0.2773
+- numeric__Torque [Nm]: 0.2590
+- numeric__Tool wear [min]: 0.1996
+- numeric__Air temperature [K]: 0.0785
+- categorical__Type_L: 0.0602
+- numeric__Process temperature [K]: 0.0583
+- categorical__Type_M: 0.0440
+- categorical__Type_H: 0.0232

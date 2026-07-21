@@ -9,3 +9,6 @@ pytest>=7.0
 fastapi>=0.110
 uvicorn>=0.29
 xgboost>=2.0
+tensorflow-cpu>=2.21
+streamlit>=1.49
+plotly>=5.0
